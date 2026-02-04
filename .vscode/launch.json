@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftPlayground}",
+            "name": "Debug SwiftPlayground",
+            "target": "SwiftPlayground",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug SwiftPlayground",
+            "disableASLR": false,
+            "initCommands": [
+                "settings set target.disable-aslr false"
+            ],
+            "runInTerminal": true
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftPlayground}",
+            "name": "Release SwiftPlayground",
+            "target": "SwiftPlayground",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release SwiftPlayground",
+            "disableASLR": false,
+            "initCommands": [
+                "settings set target.disable-aslr false"
+            ],
+            "runInTerminal": true
+        }
+    ]
+}

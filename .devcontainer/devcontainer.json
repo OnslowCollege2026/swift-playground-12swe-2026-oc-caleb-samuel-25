@@ -1,0 +1,79 @@
+{
+    "image": "swift:6.2-noble",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "swiftlang.swift-vscode",
+                "vadimcn.vscode-lldb",
+                "formulahendry.code-runner",
+                "Vapor.vapor-vscode",
+                "eamodio.gitlens",
+                "GitHub.vscode-pull-request-github",
+                "yzhang.markdown-all-in-one",
+                "SirTori.indenticator",
+                "oderwat.indent-rainbow",
+                "IgorSbitnev.error-gutters",
+                "usernamehw.errorlens",
+                "aaron-bond.better-comments",
+                "vsls-contrib.gitdoc",
+                "christian-kohler.path-intellisense",
+                "mateocerquetella.xcode-12-theme",
+                "seunlanlege.action-buttons"
+            ],
+            "settings": {
+                "gitlens.showWhatsNewAfterUpgrades": false,
+                "gitlens.showWelcomeOnInstall": false,
+                "editor.wordWrap": "on",
+                "editor.inlayHints.enabled": "off",
+                "editor.fontSize": 16,
+                "editor.rulers": [
+                    120
+                ],
+                "editor.tokenColorCustomizations": {
+                    "textMateRules": [
+                        {
+                            "scope": "comment",
+                            "settings": {
+                                "fontStyle": "italic"
+                            }
+                        }
+                    ]
+                },
+                "gitdoc.commitValidationLevel": "none",
+                "gitdoc.enabled": true,
+                "chat.disableAIFeatures": true,
+                "workbench.colorTheme": "Xcode Classic (Light)",
+                "actionButtons": {
+                    "commands": [
+                        {
+                            "cwd": "${workspaceFolder}",
+                            "name": "$(run-all) Run project",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.debug.start"
+                        },
+                        {
+                            "cwd": "{workspaceFolder}",
+                            "name": "$(pencil) Format file",
+                            "useVsCodeApi": true,
+                            "command": "editor.action.formatDocument"
+                        },
+                        {
+                            "name": "$(terminal-view-icon) New Terminal",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.terminal.newInActiveWorkspace"
+                        },
+                        {
+                            "name": "$(terminal-kill) Kill all Terminals",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.terminal.killAll"
+                        }
+                    ],
+                    "defaultColor": "none",
+                    "reloadButton": "↻",
+                    "loadNpmCommands": false
+                }
+            }
+        }
+    }
+}
