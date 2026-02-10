@@ -1,15 +1,22 @@
+// The Swift Programming Language
+// https://docs.swift.org/swift-book
+
 @main
 struct SwiftPlayground {
     static func main() {
-        let school = "Onslow College"
-        let hours = "6"
+        print("please enter a noun: ")
+        let noun = readLine()!
+        
+        print("please enter a verb: ")
+        let verb = readLine()!
 
-        var name = "sam"  // String values need quotes
-        var age = 12
-        var yearLevel = 13
+        print("please enter an adjective")
+        let adjective = readLine()!
 
-       let message = "Hi I am \(name), I am a \(age) year old student attending \(school) and im currently in year \(yearLevel). Today school lasted for \(hours) hours."
+        let sausage = ("Once upon a time there was a \(noun) that was a \(verb) hello hellow nutty egg \(adjective)")
 
-       print(message)
+        print(sausage)
+
+    
     }
 }
