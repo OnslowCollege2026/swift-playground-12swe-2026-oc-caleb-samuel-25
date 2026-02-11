@@ -1,15 +1,31 @@
+func printRoomIntro() {
+    print("This program calculates room area and volume.")
+    print("It also finds the usable space after furniture.")
+}
+
+func printUnitsNote() {
+    print("All measurements are in metres.")
+}
+
+
+func printDivider() {
+    print("--------")
+}
+
+func printGoodbye() {
+    print("Done. Thanks for using the calculator.")
+}
+
 @main
 struct SwiftPlayground {
     static func main() {
-        let school = "Onslow College"
-        let hours = "6"
+        printRoomIntro()
 
-        var name = "sam"  // String values need quotes
-        var age = 12
-        var yearLevel = 13
+        printDivider()
+print("Summary here")
 
-       let message = "Hi I am \(name), I am a \(age) year old student attending \(school) and im currently in year \(yearLevel). Today school lasted for \(hours) hours."
+    printUnitsNote()
 
-       print(message)
+printGoodbye()
     }
 }
