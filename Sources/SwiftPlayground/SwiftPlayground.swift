@@ -1,15 +1,32 @@
+func roomArea(length: Double, width: Double) -> Double {
+    return length * width
+}
+
+func roomHeight() -> Double {
+    return 2.7
+}
+
+func roomArea() -> Double {
+    return 6.0 * 4.5
+}
+
+let roomLength = 6.0
+let roomWidth = 4.5
+
+func roomArea() -> Double {
+    return roomLength * roomWidth
+}
+
+func isLargeRoom() -> Bool {
+    return true
+}
+
+
+
+
 @main
 struct SwiftPlayground {
     static func main() {
-        let school = "Onslow College"
-        let hours = "6"
 
-        var name = "sam"  // String values need quotes
-        var age = 12
-        var yearLevel = 13
-
-       let message = "Hi I am \(name), I am a \(age) year old student attending \(school) and im currently in year \(yearLevel). Today school lasted for \(hours) hours."
-
-       print(message)
     }
 }
