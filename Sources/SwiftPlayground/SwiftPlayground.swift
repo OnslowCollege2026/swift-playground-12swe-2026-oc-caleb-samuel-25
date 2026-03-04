@@ -21,6 +21,11 @@ struct SwiftPlayground {
         print(value)
         print(data)
 
-        let average = 5 + 6 + 7 + 8
+        var a = 5
+        var b = 6
+        var c = 7
+        var d = 8
+        let calculation = a + b + c + d
+        print(calculation)
     }
 }
