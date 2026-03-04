@@ -17,8 +17,10 @@ struct SwiftPlayground {
         print(firstRow)
         print(secondRow)
         print(thirdRow)
-        
+
         print(value)
         print(data)
+
+        let average = 5 + 6 + 7 + 8
     }
 }
