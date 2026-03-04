@@ -36,7 +36,7 @@ struct SwiftPlayground {
         var choice = 0
 
         while choice != 5 {
-            choice = menuChoice()
+            choice = menuChoice()0
 
             if choice == 1 {
                 print("How many eggs would you like to add?")
