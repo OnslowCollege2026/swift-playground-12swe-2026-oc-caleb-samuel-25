@@ -1,15 +1,55 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        let school = "Onslow College"
-        let hours = "6"
+        let roomLength = 6.0
+        let roomWidth = 4.5
+        let roomHeight = 2.7
 
-        var name = "sam"  // String values need quotes
-        var age = 12
-        var yearLevel = 13
+    let roomArea = roomLength * roomWidth
+    print("Room area: \(roomArea)m²")
 
-       let message = "Hi I am \(name), I am a \(age) year old student attending \(school) and im currently in year \(yearLevel). Today school lasted for \(hours) hours."
+    print("Enter room length:")
+    if let userInput = readLine(), let length = Double(userInput) {
+        print("Length is \(length)")
+    } else {
+        print("Invalid number")
+    }
 
-       print(message)
+let roomVolume = roomLength * roomWidth * roomHeight
+print("Room volume: \(roomVolume)m³")
+
+let furnitureVolumes = [1.2, 0.8, 2.5, 0.6, 1.0]
+var totalFurniture = 0.0
+
+for (index, volume) in furnitureVolumes.enumerated() {
+    print("Item \(index + 1): \(volume) m³")
+    totalFurniture += volume
+    if volume > 2.0 {
+        print("Oversized item detected")
+    }
+} 
+
+let usableVolume = roomVolume - totalFurniture
+print("Usable volume: \(usableVolume)m³")
+
+var heightInput = -1.0
+while heightInput <= 0.0 {
+    print("Enter height:")
+    if let line = readLine(), let h = Double(line) { 
+        heightInput = h
+    }
+}
+print("Accepted height: \(heightInput) m")
+
+print("Room area: \(roomArea) m²")
+print("Room volume: \(roomVolume) m³")
+print("Furniture volume: \(totalFurniture) m³")
+print("Usable volume: \(usableVolume) m³")
+
+if usableVolume < 60 {
+    print("⚠ Warning: usable volume is low.")
+} else {
+    print("Usable volume is fine.")
+}
     }
 }
