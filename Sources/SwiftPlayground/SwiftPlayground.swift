@@ -64,20 +64,19 @@ struct SwiftPlayground {
             } else {
                 print("Invalid amount, please try again!")
             }
-        }
 
-    } else if choice == 2 {
-        print("Enter weight sold \(kg):")
-        let weightInput = readLine () ?? ""
-        print("Enter number of bags used")
-        let bagInput = readLine() ?? ""
-        let weightInput = Double(weightInput) ?? 0
-        let bags = Int(bagInput) ?? 0
-        if recordSale(currentStock: stock, weight: weight, bags: bags) {
-            sales.append([weight, Double(bags)])
-            stock -= weight
-            print("Sale recorded")
+        } else if choice == 2 {
+            print("Enter weight sold (kg):")
+            let weightInput = readLine() ?? ""
+            print("Enter number of bags used")
+            let bagInput = readLine() ?? ""
+            let weight = Double(weightInput) ?? 0
+            let bags = Int(bagInput) ?? 0
+            if recordSale(currentStock: stock, weight: weight, bags: bags) {
+                sales.append([weight, Double(bags)])
+                stock -= weight
+                print("Sale recorded")
+            }
         }
     }
 }
-
