@@ -131,12 +131,20 @@ struct SwiftPlayground {
                 var totalBags = 0.0
                 var totalEarned = 0.0
 
-                // Add up every sales weight, bags, and return.
+                // Add up every sales weight, bags, and revenue.
                 for sale in sales {
                     totalWeight += sale [0]
                     totalBags += sale[1]
-                    totalEarned += (sales[0] * 3.0) + (sale[1] * 0.20)
+                    totalEarned += (sale[0] * 3.0) + (sale[1] * 0.20)
                 }
+
+                //Averages are pet bag
+                // avgWeight = total kg sold divided by total bags used
+                // avgEarned = total revenue divided by total bags used
+                let avgWeight = totalWeight / totalBags
+                let avgEarned = totalEarned / totalBags
+                print("Average weight per bag: \(avgWeight)kg")
+                print("Average weight per bag: $\(avgEarned)")
             }
             }
         }
