@@ -107,8 +107,8 @@ struct SwiftPlayground {
         // view current stock
         } else if choice == 3 {
             print(stockMessages(stock: stock))
-            }
-        }
+            
+        
 
         } else if choice == 4 {
             if sales.isEmpty {
@@ -120,4 +120,5 @@ struct SwiftPlayground {
             }
         }
     }
-
+    }
+}
