@@ -114,7 +114,7 @@ struct SwiftPlayground {
             if sales.isEmpty {
                 print("No sales recorded yet.")
             } else {
-                for i in 0 < sales.count {
+                for i in 0.. < sales.count {
                     print("Sale \(i+1): \(sales[i][0])kg, \(Int(sales[i][1])) bags")
                 }
             }
