@@ -104,21 +104,42 @@ struct SwiftPlayground {
             } else {
                 print("Invalid sale")
             }
-        // view current stock
+        
+        // Option 3, view current stock
         } else if choice == 3 {
             print(stockMessages(stock: stock))
             
         
-
+        // Option 4, View sale records
         } else if choice == 4 {
             if sales.isEmpty {
                 print("No sales recorded yet.")
             } else {
-                for i in 0..< sales.indices {
+                // loops through each sale by the index so we can show sale 1, sale 2 for exmaple.
+                // sales[i][0] is weight, sales [i][1] is bags (converted into int to display)
+                for i in sales.indices {
                     print("Sale \(i+1): \(sales[i][0])kg, \(Int(sales[i][1])) bags")
                 }
             }
+
+        } else if choice == 5 {
+            if sales.isEmpty {
+                print("No sales to summarise yet.")
+            } else {
+                // Running the totals across all the sales
+                var totalWeight = 0.0
+                var totalBags = 0.0
+                var totalEarned = 0.0
+
+                // Add up every sales weight, bags, and return.
+                for sale in sales {
+                    totalWeight += sale [0]
+                    totalBags += sale[1]
+                    totalEarned += (sales[0] * 3.0) + (sale[1] * 0.20)
+                }
+            }
+            }
+        }
         }
     }
-    }
-}
+    
