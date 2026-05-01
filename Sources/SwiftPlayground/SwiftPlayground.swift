@@ -109,5 +109,15 @@ struct SwiftPlayground {
             print(stockMessages(stock: stock))
             }
         }
+
+        } else if choice == 4 {
+            if sales.isEmpty {
+                print("No sales recorded yet.")
+            } else {
+                for i in 0 < sales.count {
+                    print("Sale \(i+1): \(sales[i][0])kg, \(Int(sales[i][1])) bags")
+                }
+            }
+        }
     }
-}
+
