@@ -68,86 +68,90 @@ struct SwiftPlayground {
         while choice != 6 {
             // Show the menu and read the users choice
             choice = menuChoice()
-        
 
-        // Option 1, add stock.
-        if choice == 1 {
-            print("How many kgs would you like to add?")
-            let input = readLine() ?? ""
-            let amount = Double(input) ?? 0  // default to 0 if invalid input is entered
-            // addStock returns nil if invalid, or the new stock if valid.
-            // if let only runs the block of code if the user provides valid input.
-            if let newStock = addStock(currentStock: stock, amount: amount) {
-                stock = newStock
-                print("Added! \(stockMessages(stock: stock))")
-            } else {
-                print("Invalid amount, please try again!")
-            }
-
-            // Option 2, return a sale.
-        } else if choice == 2 {
-            print("Enter weight sold (kg):")
-            let weightInput = readLine() ?? ""  // Asking for user input, if invalid returns nil
-            print("Enter number of bags used")
-            let bagInput = readLine() ?? ""  // Asking for user input, if invalid returns nil
-            let weight = Double(weightInput) ?? 0
-            let bags = Int(bagInput) ?? 0
-            // Validate the sale using recordSale
-            if recordSale(currentStock: stock, weight: weight, bags: bags) {
-                // Store this sale together as [weight, bags]
-                // Bags is stored as a double so the array type remains Double.
-                sales.append([weight, Double(bags)])
-                // minus sold weight from the stock.
-                stock -= weight
-                print(calculateCharge(weight: weight, bags: bags))
-                print("Sale recorded \(stockMessages(stock: stock))")
-            } else {
-                print("Invalid sale")
-            }
-        
-        // Option 3, view current stock
-        } else if choice == 3 {
-            print(stockMessages(stock: stock))
-            
-        
-        // Option 4, View sale records
-        } else if choice == 4 {
-            if sales.isEmpty {
-                print("No sales recorded yet.")
-            } else {
-                // loops through each sale by the index so we can show sale 1, sale 2 for exmaple.
-                // sales[i][0] is weight, sales [i][1] is bags (converted into int to display)
-                for i in sales.indices {
-                    print("Sale \(i+1): \(sales[i][0])kg, \(Int(sales[i][1])) bags")
-                }
-            }
-
-        } else if choice == 5 {
-            if sales.isEmpty {
-                print("No sales to summarise yet.")
-            } else {
-                // Running the totals across all the sales
-                var totalWeight = 0.0
-                var totalBags = 0.0
-                var totalEarned = 0.0
-
-                // Add up every sales weight, bags, and revenue.
-                for sale in sales {
-                    totalWeight += sale [0]
-                    totalBags += sale[1]
-                    totalEarned += (sale[0] * 3.0) + (sale[1] * 0.20)
+            // Option 1, add stock.
+            if choice == 1 {
+                print("How many kgs would you like to add?")
+                let input = readLine() ?? ""
+                let amount = Double(input) ?? 0  // default to 0 if invalid input is entered
+                // addStock returns nil if invalid, or the new stock if valid.
+                // if let only runs the block of code if the user provides valid input.
+                if let newStock = addStock(currentStock: stock, amount: amount) {
+                    stock = newStock
+                    print("Added! \(stockMessages(stock: stock))")
+                } else {
+                    print("Invalid amount, please try again!")
                 }
 
-                //Averages are pet bag
-                // avgWeight = total kg sold divided by total bags used
-                // avgEarned = total revenue divided by total bags used
-                let avgWeight = totalWeight / totalBags
-                let avgEarned = totalEarned / totalBags
-                print("Average weight per bag: \(avgWeight)kg")
-                print("Average weight per bag: $\(avgEarned)")
+                // Option 2, return a sale.
+            } else if choice == 2 {
+                print("Enter weight sold (kg):")
+                let weightInput = readLine() ?? ""  // Asking for user input, if invalid returns nil
+                print("Enter number of bags used")
+                let bagInput = readLine() ?? ""  // Asking for user input, if invalid returns nil
+                let weight = Double(weightInput) ?? 0
+                let bags = Int(bagInput) ?? 0
+                // Validate the sale using recordSale
+                if recordSale(currentStock: stock, weight: weight, bags: bags) {
+                    // Store this sale together as [weight, bags]
+                    // Bags is stored as a double so the array type remains Double.
+                    sales.append([weight, Double(bags)])
+                    // minus sold weight from the stock.
+                    stock -= weight
+                    print(calculateCharge(weight: weight, bags: bags))
+                    print("Sale recorded \(stockMessages(stock: stock))")
+                } else {
+                    print("Invalid sale")
+                }
+
+                // Option 3, view current stock
+            } else if choice == 3 {
+                print(stockMessages(stock: stock))
+
+                // Option 4, View sale records
+            } else if choice == 4 {
+                if sales.isEmpty {
+                    print("No sales recorded yet.")
+                } else {
+                    // loops through each sale by the index so we can show sale 1, sale 2 for exmaple.
+                    // sales[i][0] is weight, sales [i][1] is bags (converted into int to display)
+                    for i in sales.indices {
+                        print("Sale \(i+1): \(sales[i][0])kg, \(Int(sales[i][1])) bags")
+                    }
+                }
+
+            } else if choice == 5 {
+                if sales.isEmpty {
+                    print("No sales to summarise yet.")
+                } else {
+                    // Running the totals across all the sales
+                    var totalWeight = 0.0
+                    var totalBags = 0.0
+                    var totalEarned = 0.0
+
+                    // Add up every sales weight, bags, and revenue.
+                    for sale in sales {
+                        totalWeight += sale[0]
+                        totalBags += sale[1]
+                        totalEarned += (sale[0] * 3.0) + (sale[1] * 0.20)
+                    }
+
+                    //Averages are pet bag
+                    // avgWeight = total kg sold divided by total bags used
+                    // avgEarned = total revenue divided by total bags used
+                    let avgWeight = totalWeight / totalBags
+                    let avgEarned = totalEarned / totalBags
+                    print("Average weight per bag: \(avgWeight)kg")
+                    print("Average weight per bag: $\(avgEarned)")
+
+                }
+// Option 6, Invalid option
+// Only runs if choice isnt 1-5 and isnt 6 (which exits the loop)
+            } else if choice != 6 {
+                print("Invalid option, please try again!")
             }
-            }
-        }
+            // The while loop ended because chose option 6, and the program exits.
+            print("Goodbye!")
         }
     }
-    
+}
