@@ -142,7 +142,7 @@ struct SwiftPlayground {
                     let avgWeight = totalWeight / totalBags
                     let avgEarned = totalEarned / totalBags
                     print("Average weight per bag: \(avgWeight)kg")
-                    print("Average weight per bag: $\(avgEarned)")
+                    print("Average earned per bag: $\(avgEarned)")
 
                 }
 // Option 6, Invalid option
@@ -150,8 +150,6 @@ struct SwiftPlayground {
             } else if choice != 6 {
                 print("Invalid option, please try again!")
             }
-            // The while loop ended because chose option 6, and the program exits.
-            print("Goodbye!")
         }
     }
 }
